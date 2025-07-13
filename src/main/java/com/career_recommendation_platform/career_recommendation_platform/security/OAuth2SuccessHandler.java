@@ -45,9 +45,8 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
             return userRepository.save(user);
         });
 
-        // For now just returning plain success
-        response.setContentType("application/json");
-        response.getWriter().write("{\"message\": \"Login successful and user stored.\"}");
+
+        response.sendRedirect("http://localhost:3000/auth/callback");
     }
 }
 
